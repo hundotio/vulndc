@@ -16,7 +16,7 @@
     Set-Content -Path "C:\Users\Administrator\Desktop\flag.txt" -Value "DSU{d3l3g4t10n_f0r_th3_w1n}"    # Admin user flag
 
 # Disable User expiration
-    Get-LocalUser | ForEach-Object { Set-LocalUser -Name $_.Nam verExpires $true  /add
+    Get-LocalUser | ForEach-Object { Set-LocalUser -Name $_.Name -PasswordNeverExpires $true }
 
 # Challenge 1 - Configure Guest SMB
     New-SmbShare -Name "GUEST" -Path "C:\GUEST" -FullAccess "Everyone"
@@ -46,7 +46,7 @@
         Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
     }
 
-    Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -User $use password /add-Settings $settings
+    Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -User $user -Password $password -Settings $settings
 
 # Challenge 4 - Preauthentication
     Get-ADUser -Identity "Cook" | Set-ADAccountControl -DoesNotRequirePreAuth:$true
