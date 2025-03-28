@@ -1,11 +1,11 @@
 # Add Users:
     Set-ADUser -Identity "Guest" -Enabled $true
-    New-ADUser -Username "Menu" -Password "pink_lemonade"
-    New-ADUser -Username "Waiter" -Password "ilike2eatfood"
-    New-ADUser -Username "Cook" -Password "cookies4life"
-    New-ADUser -Username "Manager" -Password "iamthebossofthehouse"
-    New-ADUser -Username "BigBoss" -Password "tooPowerful"
-    New-ADUser -Username "Administrator" -Password "superLongAdminPassword123!"
+    net user Menu pink_lemonade /add
+    net user Waiter ilike2eatfood /add
+    net user Cook cookies4life /add
+    net user Manager iamthebossofthehouse /add
+    net user BigBoss tooPowerful /add
+    net user Administrator superLongAdminPassword123! /add
 
 # Write the flags:
     Set-Content -Path "C:\GUEST\flag.txt" -Value "DSU{0p3n_t0_3v3ry0n3}"                                # Guest share flag
@@ -16,7 +16,7 @@
     Set-Content -Path "C:\Users\Administrator\Desktop\flag.txt" -Value "DSU{d3l3g4t10n_f0r_th3_w1n}"    # Admin user flag
 
 # Disable User expiration
-    Get-LocalUser | ForEach-Object { Set-LocalUser -Name $_.Name -PasswordNeverExpires $true }
+    Get-LocalUser | ForEach-Object { Set-LocalUser -Name $_.Nam verExpires $true  /add
 
 # Challenge 1 - Configure Guest SMB
     New-SmbShare -Name "GUEST" -Path "C:\GUEST" -FullAccess "Everyone"
@@ -46,7 +46,7 @@
         Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
     }
 
-    Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -User $user -Password $password -Settings $settings
+    Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -User $use password /add-Settings $settings
 
 # Challenge 4 - Preauthentication
     Get-ADUser -Identity "Cook" | Set-ADAccountControl -DoesNotRequirePreAuth:$true
