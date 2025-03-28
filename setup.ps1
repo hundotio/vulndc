@@ -1,11 +1,3 @@
-# Write the flags:
-    Set-Content -Path "C:\GUEST\flag.txt" -Value "DSU{0p3n_t0_3v3ry0n3}"                                # Guest share flag
-    Set-Content -Path "C:\Users\Menu\Desktop\flag.txt" -Value "DSU{wh3n_l1f3_g1v3s_y0u_l3m0ns}"         # Menu user flag
-    Set-Content -Path "C:\Users\Waiter\Desktop\flag.txt" -Value "DSU{4n_4bs0lut3_cl4ss1c}"              # Waiter user flag
-    Set-Content -Path "C:\Users\Cook\Desktop\flag.txt" -Value "DSU{j3ss3_w3_n33d_t0_c00k}"              # Cook user flag
-    Set-Content -Path "C:\Users\Manager\Desktop\flag.txt" -Value "DSU{k3rb3r04st_g0_brrrr}"             # Manager user flag
-    Set-Content -Path "C:\Users\Administrator\Desktop\flag.txt" -Value "DSU{d3l3g4t10n_f0r_th3_w1n}"    # Admin user flag
-
 # Add Users:
     Set-ADUser -Identity "Guest" -Enabled $true
     New-ADUser -Username "Menu" -Password "pink_lemonade"
@@ -14,6 +6,14 @@
     New-ADUser -Username "Manager" -Password "iamthebossofthehouse"
     New-ADUser -Username "BigBoss" -Password "tooPowerful"
     New-ADUser -Username "Administrator" -Password "superLongAdminPassword123!"
+
+# Write the flags:
+    Set-Content -Path "C:\GUEST\flag.txt" -Value "DSU{0p3n_t0_3v3ry0n3}"                                # Guest share flag
+    Set-Content -Path "C:\Users\Menu\Desktop\flag.txt" -Value "DSU{wh3n_l1f3_g1v3s_y0u_l3m0ns}"         # Menu user flag
+    Set-Content -Path "C:\Users\Waiter\Desktop\flag.txt" -Value "DSU{4n_4bs0lut3_cl4ss1c}"              # Waiter user flag
+    Set-Content -Path "C:\Users\Cook\Desktop\flag.txt" -Value "DSU{j3ss3_w3_n33d_t0_c00k}"              # Cook user flag
+    Set-Content -Path "C:\Users\Manager\Desktop\flag.txt" -Value "DSU{k3rb3r04st_g0_brrrr}"             # Manager user flag
+    Set-Content -Path "C:\Users\Administrator\Desktop\flag.txt" -Value "DSU{d3l3g4t10n_f0r_th3_w1n}"    # Admin user flag
 
 # Disable User expiration
     Get-LocalUser | ForEach-Object { Set-LocalUser -Name $_.Name -PasswordNeverExpires $true }
