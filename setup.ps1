@@ -47,7 +47,7 @@
     # Challenge 6 - Constrained Delegation - Administrator Flag + Pass-the-hash
         New-Item -ItemType Directory -Path C:\Secrets\Administrator -Force
         Set-Content -Path "C:\Secrets\Administrator\flag.txt" -Value "DSU{d3l3g4t10n_f0r_th3_w1n}"
-        icacls "C:\Secrets\Administrator" /grant "Administrator:F" /inheritance:r
+        icacls "C:\Secrets\Administrator" /inheritance:r /grant "Administrator:(OI)(CI)F" /grant "Administrator:(OI)(CI)F"
 
 # Challenge 1 - Configure Guest SMB
     icacls "C:\Secrets" /grant "Guest:(OI)(CI)F"
@@ -67,7 +67,7 @@
     $task = '/c powershell New-PSDrive -Name "Public" -PSProvider "FileSystem" -Root "\\orderup\whosisit"'
     $repeat = (New-TimeSpan -Minutes 2)
     $taskName = "responder"
-    $user = "test.local\Waiter"
+    $user = "secure.local\Waiter"
     $password = "ilike2eatfood"
 
     # Create scheduled task
