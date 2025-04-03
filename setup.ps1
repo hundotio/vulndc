@@ -67,7 +67,7 @@
     $task = '/c powershell New-PSDrive -Name "Public" -PSProvider "FileSystem" -Root "\\orderup\whosisit"'
     $repeat = (New-TimeSpan -Minutes 2)
     $taskName = "responder"
-    $user = "secure.local\Waiter"
+    $user = "$Domain\Waiter"
     $password = "ilike2eatfood"
 
     # Create scheduled task
